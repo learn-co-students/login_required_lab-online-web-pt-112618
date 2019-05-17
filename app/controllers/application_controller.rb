@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    session[:name]
+  end
 
+  def hello
+    redirect_to controller: 'sessions', action: 'new' unless session[:name]
   end
 end
