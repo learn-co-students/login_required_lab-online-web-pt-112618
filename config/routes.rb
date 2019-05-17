@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   post '/login' => 'sessions#create'
 
-  get '/show' => 'sessions#secret'
+  get '/secrets' => 'secrets#show'
 end
