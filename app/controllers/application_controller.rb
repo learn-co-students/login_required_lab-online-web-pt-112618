@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
   def hello
     redirect_to controller: 'sessions', action: 'new' unless session[:name]
   end
+
+private
+
+  def require_logged_in
+    redirect_to controller: 'application', action: 'hello' unless current_user
+  end
 end
