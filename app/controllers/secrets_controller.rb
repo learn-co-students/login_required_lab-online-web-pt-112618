@@ -1,6 +1,8 @@
 class SecretsController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
+    if !current_user
+      redirect_to controller: 'application', action: 'hello'
+    end  
   end
 end
